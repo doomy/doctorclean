@@ -17,3 +17,10 @@ body {
     display: block;
     margin: 0 auto;
 }
+
+.middle {
+    width: 100%;
+    min-height:400px;
+    background-repeat: repeat-x;
+    background-image: URL('top-shadow.png');
+}
