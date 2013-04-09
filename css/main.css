@@ -36,6 +36,25 @@ body {
     margin: 0 auto;
     background-color: #fff;
     z-index: 1;
+    position: relative;
+}
+
+.bottom-shadow {
+    width: 100%;
+    height: 65px;
+    background-image: URL('bottom-shadow.png');
+    z-index: 99;
+}
+
+.bottom-shadow .bottom-white {
+    width: 1024px;
+    margin: 0 auto;
+    background-color: white;
+    background-image: URL('bottom-shadow.png');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    height: 65px;
+    z-index: 1;
 }
 
 
