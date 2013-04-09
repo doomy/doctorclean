@@ -2,9 +2,9 @@
 
 img { border: 0; padding: 0; margin: 0;}
 
-body {
-    background-color: #8b8b8b;
-}
+body { background-color: #8b8b8b; }
+
+.clear { clear: both; }
 
 .header {
     width: 100%;
@@ -45,6 +45,22 @@ body {
     background-image: url('overlay-bg.jpg');
     background-repeat: repeat-x;
 }
+
+.content .top-overlay .overlay-block {
+    float: left;
+    width: 254px;
+    height: 200px;
+    border-left: 1px solid white;
+    border-right: 1px solid #444;
+}
+
+.content .top-overlay .overlay-block:first-child {
+    border-left: none;
+}
+.content .top-overlay .overlay-block:nth-child(4) {
+    border-right: none;
+}
+
 
 .bottom-shadow {
     width: 100%;
