@@ -7,6 +7,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+h1 {
+    font-size: 60px;
+    color: #023b76;
+}
+
 .clear { clear: both; }
 
 .header {
@@ -71,6 +76,11 @@ body {
 
 .content .document-content {
     padding-top: 70px;
+}
+
+.content .document-content img.content-image {
+    float: left;
+    margin-right: 50px;
 }
 
 
