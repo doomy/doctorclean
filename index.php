@@ -19,13 +19,13 @@
                     <div class="left-menu-end">
                     </div>
                     <menu>
-                        <li><a href="#">Úvod</a></li>
-                        <li><a href="#">Čištení koberců</a></li>
-                        <li><a href="#">Čištení a dezinfekce klimatizace</a></li>
-                        <li><a href="#">Čištení aut</a></li>
-                        <li><a href="#">Mytí oken</a></li>
-                        <li><a href="#">Ceník</a></li>
-                        <li class="last"><a href="#">Kontakt</a></li>
+                        <li><a href="?p=uvod">Úvod</a></li>
+                        <li><a href="?p=cisteni-kobercu">Čištení koberců</a></li>
+                        <li><a href="?p=cisteni-a-dezinfekce-klimatizace">Čištení a dezinfekce klimatizace</a></li>
+                        <li><a href="?p=cisteni-aut">Čištení aut</a></li>
+                        <li><a href="?p=myti-oken">Mytí oken</a></li>
+                        <li><a href="?p=cenik">Ceník</a></li>
+                        <li class="last"><a href="?p=kontakt">Kontakt</a></li>
                         <li class="clear">
                         </li>
                     </menu>
@@ -67,7 +67,12 @@
             
             <div class="document-content">
                 <img class="content-image" src="img/content-1.png" />
-                <?php include 'inc/uvod.html' ?>
+                <?php
+                    if (isset($_REQUEST['p']))
+                        $page = $_REQUEST['p'] . '.html';
+                    else $page = "uvod.html";
+                    include "inc/$page";
+                ?>
 
                 <div class="clear">
                 </div>
