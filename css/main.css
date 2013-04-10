@@ -51,21 +51,21 @@ p {
     margin: 0 auto;
 }
 
-.header .menu-area .menu-wrapper div { float: left; }
+.header .menu-area .menu-wrapper div, menu { float: left; }
 
-.header .menu-area .left-menu-end {
+.header .menu-area .menu-wrapper .left-menu-end {
     width: 8px;
     height: 40px;
     background-image: url('left-menu-end.png');
 }
 
-.header .menu-area .menu-body {
+.header .menu-area .menu-wrapper menu {
     width: 1008px;
     height: 40px;
     background-image: url('menu-body.png');
 }
 
-.header .menu-area .right-menu-end {
+.header .menu-area .menu-wrapper .right-menu-end {
     width: 8px;
     height: 40px;
     background-image: url('right-menu-end.png');
