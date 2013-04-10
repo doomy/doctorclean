@@ -69,11 +69,11 @@ p {
     border-left: 1px solid #fffa5f;
     border-right: 1px solid #988b00;
     color: black;
-    padding: 6px 10px 0px 10px;
+    padding: 7px 21px;
     font-size: 18px;
     list-style-type: none;
     margin-top: 1px;
-    height: 32px;
+    height: 24px;
     float: left;
 }
 
