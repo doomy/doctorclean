@@ -65,6 +65,30 @@ p {
     background-image: url('menu-body.png');
 }
 
+.header .menu-area .menu-wrapper menu li {
+    border-left: 1px solid #fffa5f;
+    border-right: 1px solid #988b00;
+    color: black;
+    padding: 6px 10px 0px 10px;
+    font-size: 18px;
+    list-style-type: none;
+    margin-top: 1px;
+    height: 32px;
+    float: left;
+}
+
+.header .menu-area .menu-wrapper menu li:first-child {
+    border-left: none;
+}
+
+.header .menu-area .menu-wrapper menu li.last {
+    border-right: none;
+}
+
+.header .menu-area .menu-wrapper menu li.clear {
+    border: none;
+}
+
 .header .menu-area .menu-wrapper .right-menu-end {
     width: 8px;
     height: 40px;
