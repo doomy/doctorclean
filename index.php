@@ -83,6 +83,12 @@
             </div>
         </div>
         <div class="footer">
+            <div class="footer-main-area">
+                <div class="left-column">
+                </div>
+                <div class="right-column">
+                </div>
+            </div>
         </div>
     </body>
 </html>

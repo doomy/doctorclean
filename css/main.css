@@ -16,7 +16,7 @@ h1 {
     margin-bottom: 5px;
 }
 
-ul { margin-left: 15px; }
+ul { margin-left: 15px; margin-top: 10px; line-height: 24px; }
 
 p {
     margin-top: 5px;
@@ -189,4 +189,9 @@ p {
     background-color: #023b76;
 }
 
+.footer .footer-main-area {
+    width: 1024px;
+    margin: 0 auto;
+}
 
+.footer .footer-main-area .left-column {}
