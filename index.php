@@ -86,9 +86,19 @@
         <div class="footer">
             <div class="footer-main-area">
                 <div class="left-column">
+                    <strong>Provozovatel</strong> <br />
+                    Marek Markov <br />
+                    Praha 9, 190 00, Špitálská 2/700<br />
+                    IČ: 87594242<br />
+                    Bank. spojení: 670100-2202535619/6210
                 </div>
                 <div class="right-column">
+                    <strong>Obchodní zastoupení pro Prahu</strong><br />
+                    Email: <a href="mailto:doctorclean@seznam.cz">doctorclean@seznam.cz</a> <br />
+                    Tel: +420 728 791 598
                 </div>
+                <div class="clear">
+                </duv>
             </div>
         </div>
     </body>
