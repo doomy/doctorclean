@@ -66,12 +66,13 @@
             </div>
             
             <div class="document-content">
-                <img class="content-image" src="img/content-1.png" />
+
                 <?php
                     if (isset($_REQUEST['p']))
-                        $page = $_REQUEST['p'] . '.html';
-                    else $page = "uvod.html";
-                    include "inc/$page";
+                        $page = $_REQUEST['p'];
+                    else $page = "uvod";
+                    echo "<img class=\"content-image\" src=\"img/$page.png\" />";
+                    include "inc/$page" . '.html';
                 ?>
 
                 <div class="clear">
