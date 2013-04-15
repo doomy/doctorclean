@@ -13,25 +13,30 @@
     </head>
     <body>
         <div class="header">
-            <img class="logo" src="img/logo.jpg" />
-            <div class="menu-area">
-                <div class="menu-wrapper">
-                    <div class="left-menu-end">
-                    </div>
-                    <menu>
-                        <li><a href="?p=uvod">Úvod</a></li>
-                        <li><a href="?p=cisteni-kobercu">Čištení koberců</a></li>
-                        <li><a href="?p=cisteni-a-dezinfekce-klimatizace">Čištení a dezinfekce klimatizace</a></li>
-                        <li><a href="?p=cisteni-aut">Čištení aut</a></li>
-                        <li><a href="?p=myti-oken">Mytí oken</a></li>
-                        <li><a href="?p=cenik">Ceník</a></li>
-                        <li class="last"><a href="?p=kontakt">Kontakt</a></li>
-                        <li class="clear">
-                        </li>
-                    </menu>
-                    <div class="right-menu-end">
-                    </div>
-                    <div class="clear">
+            <div class="center-area">
+                <img class="logo" src="img/logo.jpg" />
+                <img class="operator" src="img/operator.png" />
+
+                <div class="menu-area">
+
+                    <div class="menu-wrapper">
+                        <div class="left-menu-end">
+                        </div>
+                        <menu>
+                            <li><a href="?p=uvod">Úvod</a></li>
+                            <li><a href="?p=cisteni-kobercu">Čištení koberců</a></li>
+                            <li><a href="?p=cisteni-a-dezinfekce-klimatizace">Čištení a dezinfekce klimatizace</a></li>
+                            <li><a href="?p=cisteni-aut">Čištení aut</a></li>
+                            <li><a href="?p=myti-oken">Mytí oken</a></li>
+                            <li><a href="?p=cenik">Ceník</a></li>
+                            <li class="last"><a href="?p=kontakt">Kontakt</a></li>
+                            <li class="clear">
+                            </li>
+                        </menu>
+                        <div class="right-menu-end">
+                        </div>
+                        <div class="clear">
+                        </div>
                     </div>
                 </div>
             </div>

@@ -45,6 +45,19 @@ p {
     margin: 0 auto;
 }
 
+.header .center-area {
+    width: 1024px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header .center-area .operator {
+    position: absolute;
+    bottom: -27px;
+    right: 105px;
+
+}
+
 .header .menu-area {
     position: absolute;
     top: 300px;
