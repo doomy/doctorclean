@@ -76,7 +76,10 @@
                     if (isset($_REQUEST['p']))
                         $page = $_REQUEST['p'];
                     else $page = "uvod";
-                    echo "<img class=\"content-image\" src=\"img/$page.png\" />";
+                    if (($page != 'cenik')&&($page != "cisteni-aut"))
+                        echo "<img class=\"content-image\" src=\"img/$page.png\" />";
+                    if ($page == 'cisteni-aut')
+                        echo "<img class=\"content-image right\" src=\"img/$page.png\" />";
                     include "inc/$page" . '.html';
                 ?>
 

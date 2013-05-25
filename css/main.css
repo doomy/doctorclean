@@ -54,7 +54,7 @@ p {
 .header .center-area .operator {
     position: absolute;
     bottom: -27px;
-    right: 105px;
+    right: 0px;
 
 }
 
@@ -177,6 +177,13 @@ p {
     margin-right: 50px;
     margin-bottom: 30px;
 }
+
+.content .document-content img.right {
+    float: right;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
 
 .content .document-content table.cenik th {
     vertical-align: top;
