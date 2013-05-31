@@ -73,9 +73,6 @@
             <div class="document-content">
 
                 <?php
-                    if (isset($_REQUEST['p']))
-                        $page = $_REQUEST['p'];
-                    else $page = "uvod";
                     if (($page != 'cenik')&&($page != "cisteni-aut"))
                         echo "<img class=\"content-image\" src=\"img/$page.png\" />";
                     if ($page == 'cisteni-aut')
