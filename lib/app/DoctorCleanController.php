@@ -1,7 +1,9 @@
 <?php
     class DoctorCleanController extends BaseController {
         public function run() {
-            include 'templates/index.tpl.php';
+            $this->include_packages(array("template"));
+            $template = new Template($this->env, 'index.tpl.php');
+            $template->show();
         }
     }
 
