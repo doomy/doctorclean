@@ -1,5 +1,5 @@
 <?php
-    class DoctorCleanController extends BaseController {
+    class DoctorCleanController extends BasePackageWithDB {
         public function run() {
             $this->include_packages(array("template"));
 
