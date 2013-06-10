@@ -1,12 +1,11 @@
 <?php
-class dbHandler extends BasePackage {
-    # version 14
+class dbHandler {
+    # version 15
 
     private $connection;
 
     public function __construct($env) {
         $this->env = $env;
-        $this->include_packages(array('log'));
         $this->connection = mysql_connect(
             $this->env->ENV_VARS['DB_HOST'],
             $this->env->ENV_VARS['DB_USER'],
@@ -77,8 +76,11 @@ class dbHandler extends BasePackage {
     public function run_db_call($package, $db_call_name) {
         include_once($this->env->basedir . "db_calls/$package.php");
         $package_class = $package."_db_calls";
-        $package = new $package_class();
-        return $package->$db_call_name($this);
+        $package = new $package_class($this->env);
+        $arg_list = func_get_args();
+        array_shift($arg_list);
+        array_shift($arg_list);
+        return call_user_func_array(array($package, $db_call_name), $arg_list);
     }
     
     function _fetch_array($result) {
@@ -94,10 +96,9 @@ class dbHandler extends BasePackage {
     }
 
     private function _manage_upgrades() {
-
         $last_processed_upgrade_id = $this->_get_last_processed_upgrade_id();
         $upgrade_files = $this->_get_upgrade_files();
-        @sort($upgrade_files);
+        sort($upgrade_files);
         $last_file = @end($upgrade_files);
         $newest_upgrade_id = $this->_get_upgrade_id_from_filename($last_file);
 

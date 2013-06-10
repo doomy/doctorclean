@@ -1,12 +1,12 @@
 <?php
-include 'package.php';
+include_once('package.php');
 
 class BasePackageWithDb extends BasePackage {
 // version 1
 
     public function __construct($env)  {
         $this->env = $env;
-        include($this->env->basedir . 'lib/db_handler.php');
+        $this->include_packages(array('db_handler'));
         $this->dbh = new dbHandler($this->env);
         $this->_init();
     }
