@@ -77,7 +77,7 @@
                         echo "<img class=\"content-image\" src=\"img/$page.png\" />";
                     if ($page == 'cisteni-aut')
                         echo "<img class=\"content-image right\" src=\"img/$page.png\" />";
-                    include "inc/$page" . '.html';
+                    echo "<h1>$title</h1>$content";
                 ?>
 
                 <div class="clear">
