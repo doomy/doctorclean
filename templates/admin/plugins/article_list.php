@@ -1,1 +1,1 @@
-<h1>article list</h1>
+<h1><?php echo $admin->template_vars['title']; ?></h1>
