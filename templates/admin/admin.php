@@ -30,7 +30,7 @@
     <body>
         <?php
             if (@$content_template)
-                include ($admin->env->basedir . 'admin/templates/plugins/' . $content_template);
+                include ($admin->env->basedir . 'templates/admin/plugins/' . $content_template);
         ?>
         <br />
         <a href='?action=logout' />Log out</a>
