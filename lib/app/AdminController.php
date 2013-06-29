@@ -33,6 +33,7 @@ class Admin extends BasePackageWithDb {
         $this->template_vars = array();
         if (isset($this->modules)) {
             foreach($this->modules as $module) {
+                $module->run();
                 $content_template = $module->content_template;
                 $this->template_vars = array_merge(
                     $this->template_vars, $module->template_vars

@@ -1,10 +1,14 @@
 <?php
 class ArticleList extends BasePackageWithDb {
-
-    function _init() {
-        $this->title = 'Editace Článků';
+// version 1
+    public function run() {
+        $this->title = 'Seznam Článků';
         $this->content_template = 'article_list.php';
-        $this->template_vars = array('title' => 'New article list');
+        $article_list = $this->dbh->run_db_call('admin/plugins/ArticleList', 'get_article_names');
+        $this->template_vars = array(
+            'title'        => 'Seznam článků',
+            'article_list' => $article_list
+        );
     }
 }
 
