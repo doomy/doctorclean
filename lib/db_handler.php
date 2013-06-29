@@ -1,6 +1,6 @@
 <?php
 class dbHandler {
-    # version 16
+    # version 17
 
     private $connection;
 
@@ -75,12 +75,17 @@ class dbHandler {
     
     public function run_db_call($package, $db_call_name) {
         include_once($this->env->basedir . "db_calls/$package.php");
-        $package_class = $package."_db_calls";
+        $package_class = $this->_get_valid_db_call_class_name($package);
         $package = new $package_class($this->env);
         $arg_list = func_get_args();
         array_shift($arg_list);
         array_shift($arg_list);
         return call_user_func_array(array($package, $db_call_name), $arg_list);
+    }
+    
+    function _get_valid_db_call_class_name($package) {
+        $parts = explode('/', $package);
+        return array_pop($parts) . "_db_calls";
     }
     
     function _fetch_array($result) {
