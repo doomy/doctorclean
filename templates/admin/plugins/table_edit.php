@@ -1,4 +1,4 @@
-<?php // version 4 ?>
+<?php // version 5 ?>
 You are logged in.
 <form action='' enctype="multipart/form-data" id='table_form' method='POST'>
     <table>
@@ -24,7 +24,7 @@ You are logged in.
                                 echo "<td><input type='text' value='$record' name='column__{$column}__id__$id' class='fileinput' id='file-$column-$id' /></td>";
                             }
                             else if ($editable_type=='text_content') {
-                                echo "<td><input type='text' VALUE='[ TEXT CONTENT ]' name='column__{$column}__id__$id' /></td>";
+                                echo "<td><input type='text' VALUE='[ TEXT CONTENT ]' /></td>";
                             }
                             else
                             {
