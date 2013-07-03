@@ -11,9 +11,10 @@
     
     $text_content_column = new EditableColumn('content', 'text_content');
     $menu_title_column = new EditableColumn('menu_title', 'text');
+    $title_column = new EditableColumn('title', 'text');
     
     $admin = new Admin($env);
-    $table_edit = new TableEdit($env, $admin, 't_content_pages', array($text_content_column, $menu_title_column));
+    $table_edit = new TableEdit($env, $admin, 't_content_pages', array($text_content_column, $menu_title_column, $title_column));
     $admin->add_modules($table_edit);
     $admin->run();
 ?>
