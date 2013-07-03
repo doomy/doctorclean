@@ -33,7 +33,7 @@ class TableEdit extends BasePackageWithDb {
     }
     
     private function _update() {
-        $this->_update_files();
+        if (count($_FILES) > 1) $this->_update_files();
         $this->_update_from_post();
         if (@$_POST['new_row'] == 'yes')
             $this->_insert_new_line();
