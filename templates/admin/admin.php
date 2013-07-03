@@ -10,9 +10,10 @@
             include( $admin->env->basedir . 'lib/template/included_file.php' );
 
             $files_to_be_included = array(
+                new IncludedFile($admin->env->basedir . 'css/foundation.css', $admin->env),
                 new IncludedFile($admin->env->basedir . 'css/admin.css', $admin->env),
                 new IncludedFile($admin->env->basedir .
-                    'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js',
+                    'js/jquery.js',
                     $admin->env
                 ),
                 new IncludedFile($admin->env->basedir .

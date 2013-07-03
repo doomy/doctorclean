@@ -16,7 +16,7 @@ class TableEdit extends BasePackageWithDb {
     public function run() {}
     
     private function _get_table_vars() {
-        $rows = $this->dbh->get_array_of_rows_from_table($this->table_name, null, null, 'array');
+        $rows = $this->dbh->get_array_of_rows_from_table($this->table_name, null, null, 'assoc');
         if (count($rows) <= 0) return false;
         $table_vars['columns'] = array_keys($rows[0]);
         $table_vars['rows']    = $rows;

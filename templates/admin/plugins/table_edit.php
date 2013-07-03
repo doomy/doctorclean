@@ -11,6 +11,7 @@ You are logged in.
         </tr>
         <?php
             $store_columns = true;
+
             foreach ($admin->template_vars['rows'] as $row) {
                 echo "<tr>";
 
@@ -21,6 +22,9 @@ You are logged in.
                         if ($editable_type) {
                             if ($editable_type=='file') {
                                 echo "<td><input type='text' value='$record' name='column__{$column}__id__$id' class='fileinput' id='file-$column-$id' /></td>";
+                            }
+                            else if ($editable_type=='text_content') {
+                                echo "<td><input type='text' VALUE='[ TEXT CONTENT ]' name='column__{$column}__id__$id' /></td>";
                             }
                             else
                             {
