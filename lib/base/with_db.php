@@ -8,7 +8,9 @@ class BasePackageWithDb extends BasePackage {
         $this->env = $env;
         $this->include_packages(array('db_handler'));
         $this->dbh = new dbHandler($this->env);
-        $this->_init();
+        $arg_list = func_get_args();
+        array_shift($arg_list);
+        call_user_func_array(array($this, '_init'), $arg_list);
     }
 }
 
