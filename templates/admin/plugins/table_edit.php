@@ -24,7 +24,7 @@ You are logged in.
                                 echo "<td><input type='text' value='$record' name='column__{$column}__id__$id' class='fileinput' id='file-$column-$id' /></td>";
                             }
                             else if ($editable_type=='text_content') {
-                                echo "<td><input type='text' VALUE='[ TEXT CONTENT ]' disabled='disabled'/></td>";
+                                echo "<td><input type='button' VALUE='[ SHOW TEXT CONTENT ]' class='editable-content' onclick='window.open(\"{$admin->env->basedir}admin/editor/?id=$id\")' /></td>";
                             }
                             else
                             {

@@ -20,6 +20,7 @@ $(function() {
        var $hidden = $("<input type='hidden' name='new_row' value='yes' />");
        $(this).after($hidden);
     });
+
 });
 
 function get_filename_from_path(text) {

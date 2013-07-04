@@ -17,7 +17,7 @@
                     $admin->env
                 ),
                 new IncludedFile($admin->env->basedir .
-                    $admin->env->basedir . 'admin/js/modules/table_edit.js',
+                    'js/modules/table_edit.js',
                     $admin->env
                 )
             );
