@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/main.css" type="text/css">
     </head>
     <body>
+        <a href="http://www.toplist.cz/" class="hidden" target="_top"><img src="http://toplist.cz/count.asp?id=1573697" alt="TOPlist" border="0"></a>
         <div class="header">
             <div class="center-area">
                 <img class="logo" src="img/logo.jpg" />

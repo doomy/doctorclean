@@ -31,6 +31,10 @@ p {
     clear: both;
 }
 
+.hidden {
+    display: none;
+}
+
 .header {
     width: 100%;
     height: 250px;
