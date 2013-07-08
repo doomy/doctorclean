@@ -8,6 +8,11 @@ class Editor_db_calls extends BasePackageWithDb {
         $obj = $this->dbh->fetch_one_from_sql($sql);
         return $obj->content;
     }
+    
+    function save_content($id, $content) {
+         $sql = "UPDATE t_content_pages SET content = '$content' WHERE id = $id;";
+         $this->dbh->query($sql);
+    }
 
 }
 
