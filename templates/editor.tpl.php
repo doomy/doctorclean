@@ -4,7 +4,7 @@
         <script src="../../ckeditor/ckeditor.js"></script>
     </head>
     <body>
-        <textarea class="ckeditor" cols="50" id="editor1" name="editor1" rows="10" disabled >
+        <textarea class="ckeditor" cols="50" rows="80" id="editor1" name="editor1" >
         <?php echo $content; ?>
         </textarea>
     </body>
