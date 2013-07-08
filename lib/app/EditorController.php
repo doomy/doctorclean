@@ -22,7 +22,8 @@ class EditorController extends BasePackageWithDb {
         $content = $_POST['editor'];
         $id = $_POST['id'];
         $this->dbh->run_db_call('Editor', 'save_content', $id, $content);
-        
+        $template = new Template($this->env, 'editor/finished.tpl.php');
+        $template->show();
     }
 }
 ?>
