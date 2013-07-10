@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="cs">
     <head>
-        <title>Doctor Clean</title>
+        <title><?php if($title!='DoctorClean') echo $title . " - "; ?>Doctor Clean</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    <meta name="application-name" content="doctor-clean.cz" />
         <meta http-equiv="content-language" content="cs" />
