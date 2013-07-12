@@ -13,7 +13,8 @@
             $template->show(array(
                 'page' => $page_name,
                 'title' => $page->title,
-                'content' => $page->content
+                'content' => $page->content,
+                'hide_metrics' => $this->env->ENV_VARS['metrics_hide_metrics']
             ));
         }
         
