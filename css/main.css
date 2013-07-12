@@ -70,8 +70,9 @@ p {
    }
    
 .header .menu-area .menu-wrapper {
-    width: 1024px;
+    width: 1020px;
     margin: 0 auto;
+    position: relative;
 }
 
 .header .menu-area .menu-wrapper div, menu { float: left; }
@@ -83,7 +84,6 @@ p {
 }
 
 .header .menu-area .menu-wrapper menu {
-    width: 1008px;
     height: 40px;
     background-image: url('menu-body.png');
 }

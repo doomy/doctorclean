@@ -15,6 +15,10 @@
         <?php if (!$hide_metrics) { ?>
             <a href="http://www.toplist.cz/" class="hidden" target="_top"><img src="http://toplist.cz/count.asp?id=1573697" alt="TOPlist" border="0"></a>
         <?php } ?>
+        
+        <script src="js/jquery.js"></script>
+        <script src="js/doctorclean.js"></script>
+        
         <div class="header">
             <div class="center-area">
                 <img class="logo" src="img/logo.jpg" />
@@ -27,8 +31,9 @@
                         </div>
                         <menu>
                              <?php
-                                 foreach ($menu_items as $menu_item) {
+                                 foreach ($menu_items as $key => $menu_item) {
                                      echo "<li";
+                                     if ($key == 0) echo " class='first'";
                                      if ($menu_item == end($menu_items)) echo " class='last'";
                                      echo "><a href='?p=$menu_item->str_id'>$menu_item->menu_title</a></li>";
                                  }
@@ -105,7 +110,7 @@
                     Tel: +420 728 791 598
                 </div>
                 <div class="clear">
-                </duv>
+                </div>
             </div>
         </div>
     </body>
