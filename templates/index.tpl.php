@@ -26,13 +26,13 @@
                         <div class="left-menu-end">
                         </div>
                         <menu>
-                            <li><a href="?p=uvod">Úvod</a></li>
-                            <li><a href="?p=cisteni-kobercu">Čištení koberců</a></li>
-                            <li><a href="?p=cisteni-a-dezinfekce-klimatizace">Čištení a dezinfekce klimatizace</a></li>
-                            <li><a href="?p=cisteni-aut">Čištení aut</a></li>
-                            <li><a href="?p=myti-oken">Mytí oken</a></li>
-                            <li><a href="?p=cenik">Ceník</a></li>
-                            <li class="last"><a href="?p=kontakt">Kontakt</a></li>
+                             <?php
+                                 foreach ($menu_items as $menu_item) {
+                                     echo "<li";
+                                     if ($menu_item == end($menu_items)) echo " class='last'";
+                                     echo "><a href='?p=$menu_item->str_id'>$menu_item->menu_title</a></li>";
+                                 }
+                             ?>
                             <li class="clear">
                             </li>
                         </menu>

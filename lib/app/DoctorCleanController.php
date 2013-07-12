@@ -13,6 +13,7 @@
             $template->show(array(
                 'page' => $page_name,
                 'title' => $page->title,
+                'menu_items' => $this->dbh->run_db_call('DoctorClean', 'get_menu_items'),
                 'content' => $page->content,
                 'hide_metrics' => $this->env->ENV_VARS['metrics_hide_metrics']
             ));
