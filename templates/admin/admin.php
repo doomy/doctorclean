@@ -1,5 +1,5 @@
 <!doctype html>
-<?php // version 4 ?>
+<?php // version 5 ?>
 <html lang="cs">
     <head>
         <meta charset="utf-8">
@@ -34,6 +34,6 @@
                 include ($admin->env->basedir . 'templates/admin/plugins/' . $content_template);
         ?>
         <br />
-        <a href='?action=logout' />Log out</a>
+        <a href='?action=logout' />Odhlásit</a>
     </body>
 </html>
