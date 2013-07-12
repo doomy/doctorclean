@@ -1,4 +1,4 @@
-<?php // version 5 ?>
+<?php // version 6 ?>
 You are logged in.
 <form action='' enctype="multipart/form-data" id='table_form' method='POST'>
     <table>
@@ -67,7 +67,9 @@ You are logged in.
         
     </table>
     <input type='hidden' name='tableedit_action' value='update' />
-    <input type='button' id='add_new_button' value='Add a new row' />
+    <?php if (!($admin->template_vars['prevent_newline'])) { ?>
+        <input type='button' id='add_new_button' value='Add a new row' />
+    <?php } ?>
     <input type='submit' value='Update' />
 </form>
 
