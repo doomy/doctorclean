@@ -29,6 +29,9 @@
 
     </head>
     <body>
+        <div class="admin-head">
+            <h1>Administrace</h1>
+        </div>
         <?php
             if (@$content_template)
                 include ($admin->env->basedir . 'templates/admin/plugins/' . $content_template);

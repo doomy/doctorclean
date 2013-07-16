@@ -69,6 +69,6 @@
     <?php if (!($admin->template_vars['prevent_newline'])) { ?>
         <input type='button' id='add_new_button' value='Add a new row' />
     <?php } ?>
-    <input type='submit' class="small button" value='Uložit' />
+    <input type='submit' class="small save button" value='Uložit' />
 </form>
 

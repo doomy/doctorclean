@@ -1,1 +1,24 @@
 .hidden { display: none; }
+
+/* Table Edit */
+
+.admin-head {
+    position: relative;
+    width: 100%;
+}
+
+h1 {
+    margin: 0 auto;
+    width: 300px;
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.save.button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+}
