@@ -24,11 +24,16 @@ table {
 }
 
 form.content_saved {
+    margin-top: 170px;
     width : 100%;
     text-align: center;
 }
 
 form.content_saved strong {
     display: block;
-    margin: 30px 0 30px 0;
+    margin: 50px 0 30px 0;
+}
+
+form.content_saved .button {
+    margin: 20px;
 }
