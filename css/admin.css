@@ -37,3 +37,20 @@ form.content_saved strong {
 form.content_saved .button {
     margin: 20px;
 }
+
+form#login {
+    width: 400px;
+    margin: 0 auto;
+}
+
+form#login input {
+    text-align: center;
+}
+
+form#login fieldset#actions {
+    text-align: center;
+}
+
+form#login fieldset#actions input {
+    margin-bottom: 0;
+}
