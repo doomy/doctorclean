@@ -29,6 +29,7 @@
 
     </head>
     <body>
+        <a class="small button" href='?action=logout' />Odhlásit</a>
         <div class="admin-head">
             <h1>Administrace</h1>
         </div>
@@ -37,6 +38,5 @@
                 include ($admin->env->basedir . 'templates/admin/plugins/' . $content_template);
         ?>
         <br />
-        <a href='?action=logout' />Odhlásit</a>
     </body>
 </html>
