@@ -1,9 +1,10 @@
 <?php
 class TableEdit extends BasePackageWithDb {
-# version 10
+# version 11
 
     public function _init($admin, $table, $editable_columns) {
         $this->admin = $admin;
+        $this->just_updated = false;
         $this->title = 'TableEdit';
         $this->content_template = 'table_edit.php';
         $this->table_name = $table;
@@ -22,6 +23,7 @@ class TableEdit extends BasePackageWithDb {
         $table_vars['rows']    = $rows;
         $table_vars['editable_columns'] = $this->editable_columns;
         $table_vars['prevent_newline'] = $this->env->ENV_VARS['admin_tableedit_prevent_newline'];
+        $table_vars['just_updated'] = $this->just_updated;
         return $table_vars;
     }
     
@@ -36,6 +38,7 @@ class TableEdit extends BasePackageWithDb {
     private function _update() {
         if (count($_FILES) > 1) $this->_update_files();
         $this->_update_from_post();
+        $this->just_updated = true;
         if (@$_POST['new_row'] == 'yes')
             $this->_insert_new_line();
     }

@@ -54,3 +54,9 @@ form#login fieldset#actions {
 form#login fieldset#actions input {
     margin-bottom: 0;
 }
+
+.update-success-message {
+    width: 200px;
+    margin:  0 auto;
+    color: green;
+}

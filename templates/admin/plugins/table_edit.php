@@ -1,4 +1,9 @@
-<?php // version 6 ?>
+<?php // version 7 ?>
+<?php if($admin->template_vars['just_updated']) { ?>
+    <div class="update-success-message">
+        Úspěšně aktualizováno.
+    </div>
+<?php } ?>
 <form action='' enctype="multipart/form-data" id='table_form' method='POST'>
     <table>
         <tr>
