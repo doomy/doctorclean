@@ -3,7 +3,7 @@ class Admin extends BasePackageWithDb {
     # version 11
     
     function _init() {
-        $this->include_packages(array('admin/login', 'admin/login/credentials'));
+        $this->include_packages(array('login', 'login/credentials'));
         session_start();
     }
 
