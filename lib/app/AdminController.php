@@ -1,9 +1,9 @@
 <?php
 class Admin extends BasePackageWithDb {
-    # version 11
+    # version 12
     
     function _init() {
-        $this->include_packages(array('login', 'login/credentials'));
+        $this->include_packages(array('login', 'model/login/credentials'));
         session_start();
     }
 
