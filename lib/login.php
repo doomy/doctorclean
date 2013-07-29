@@ -1,9 +1,9 @@
 <?php
-class Login {
+class Login extends BasePackageWithDb {
     # requires session_start
-    # version 4
+    # version 5
     
-    public function is_logged_in() {
+    public function has_permission($permission) {
         return isset($_SESSION['logged_in']);
     }
     
@@ -11,19 +11,16 @@ class Login {
         unset($_SESSION['logged_in']);
     }
     
-    public function attempt_login($given_credentials, $expected_credentials) {
-        if ($this->_check_login($given_credentials, $expected_credentials)) {
+    public function attempt_login($credentials) {
+        if ($this->_check_login($credentials)) {
             $this->_log_in();
             return true;
         }
         else return false;
     }
     
-    private function _check_login($given_credentials, $expected_credentials) {
-        return (
-            $given_credentials->username == $expected_credentials->username
-            && $given_credentials->password == $expected_credentials->password
-        );
+    private function _check_login($credentials) {
+        return $this->dbh->run_db_call('Login', 'are_credentials_correct',  $credentials);
     }
     
     private function _log_in() {

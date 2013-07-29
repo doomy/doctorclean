@@ -1,6 +1,6 @@
 <?php
 class Admin extends BasePackageWithDb {
-    # version 12
+    # version 13
     
     function _init() {
         $this->include_packages(array('login', 'model/login/credentials'));
@@ -8,8 +8,8 @@ class Admin extends BasePackageWithDb {
     }
 
     public function run() {
-        $this->login = new Login();
-        if ($this->login->is_logged_in()) {
+        $this->login = new Login($this->env);
+        if ($this->login->has_permission('admin')) {
             if (@$_GET['action']=='logout') {
                 $this->login->log_out();
             }
@@ -44,20 +44,12 @@ class Admin extends BasePackageWithDb {
     }
     
     private function _attempt_login() {
-        $given_credentials = new Credentials(
+        $credentials = new Credentials(
             $_POST['username'], $_POST['password']
         );
-        $expected_credentials = new Credentials(
-            $this->env->ENV_VARS['admin_username'],
-            $this->env->ENV_VARS['admin_password']
-        );
-
-        if ($this->login->attempt_login(
-            $given_credentials, $expected_credentials
-        ))
-        {
+        if ($this->login->attempt_login($credentials)) {
             return true;
-        }
+        };
         return false;
     }
 }
