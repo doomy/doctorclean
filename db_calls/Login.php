@@ -8,6 +8,12 @@ class Login_db_calls extends BasePackageWithDb {
         $row = $this->dbh->fetch_one_from_sql($sql, 'object');
         return ($row->password == $credentials->password);
     }
+
+    public function get_user_permissions($username) {
+        $sql = "SELECT permissions FROM t_users WHERE username = '$username';";
+        $row = $this->dbh->fetch_one_from_sql($sql, 'object');
+        return explode(',', $row->permissions);
+    }
 }
 
 ?>

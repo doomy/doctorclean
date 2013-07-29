@@ -1,6 +1,6 @@
 <?php
 class Admin extends BasePackageWithDb {
-    # version 13
+    # version 14
     
     function _init() {
         $this->include_packages(array('login', 'model/login/credentials'));
@@ -47,7 +47,7 @@ class Admin extends BasePackageWithDb {
         $credentials = new Credentials(
             $_POST['username'], $_POST['password']
         );
-        if ($this->login->attempt_login($credentials)) {
+        if ($this->login->attempt_login($credentials, 'admin')) {
             return true;
         };
         return false;
