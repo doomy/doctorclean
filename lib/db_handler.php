@@ -1,17 +1,17 @@
 <?php
-class dbHandler {
+class dbHandler extends BasePackage {
     # version 17
 
     private $connection;
 
-    public function __construct($env) {
-        $this->env = $env;
+    function _init() {
+        $this->include_packages(array('dir'));
         $this->connection = mysql_connect(
             $this->env->ENV_VARS['DB_HOST'],
             $this->env->ENV_VARS['DB_USER'],
             $this->env->ENV_VARS['DB_PASS']
         );
-        mysql_select_db($env->ENV_VARS['DB_NAME'], $this->connection);
+        mysql_select_db($this->env->ENV_VARS['DB_NAME'], $this->connection);
         if ($this->env->ENV_VARS['DB_CREATE']) {
             $this->_create_db();
         }
@@ -145,7 +145,6 @@ class dbHandler {
     }
 
     private function _get_upgrade_files() {
-        include_once($this->env->basedir.'lib/dir.php');
         $dir_handler = new Dir($this->env);
         return $dir_handler->get_files_from_dir_by_extension(
              $this->env->basedir.'sql/upgrade', 'sql'
