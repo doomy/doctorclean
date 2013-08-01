@@ -23,7 +23,9 @@
             <div class="center-area">
                 <img class="logo" src="img/logo.jpg" />
                 <img class="operator" src="img/operator.png" />
-
+                <div class="login-area">
+                    <?php if($logged_in) include('templates/login/in.tpl.php'); else include('templates/login/out.tpl.php'); ?>
+                </div>
                 <div class="menu-area">
 
                     <div class="menu-wrapper">
