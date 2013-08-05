@@ -21,12 +21,12 @@
                 'menu_items' => $this->dbh->run_db_call('DoctorClean', 'get_menu_items'),
                 'content' => $page->content,
                 'hide_metrics' => $this->env->ENV_VARS['metrics_hide_metrics'],
-                'logged_in' => $this->logged_in
+                'logged_in' => $this->logged_in,
             );
             
             if ($this->logged_in) $template_vars['username'] = $this->login->get_username();
+            if (!$this->logged_in) $template_vars['failed_login'] = $this->failed_login;
 
-            #var_dump($template_vars);
             $template->show($template_vars);
         }
         
@@ -37,7 +37,7 @@
         }
         
         function _handle_login() {
-
+            $this->failed_login = false;
             if (@$_POST['logout']) {
                 $this->login->log_out();
                 return false;
@@ -46,6 +46,7 @@
             if (isset($_POST["username"])) {
                 $credentials = new Credentials($_POST["username"], $_POST["password"]);
                 if ($this->login->attempt_login($credentials, 'user')) return true;
+                else $this->failed_login = true;
             }
 
             return false;
