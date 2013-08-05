@@ -2,7 +2,7 @@
     class DoctorCleanController extends BasePackageWithDB {
         public function run() {
             $this->include_packages(array("template", "model/DoctorCleanModel", "login", "model/login/credentials"));
-            
+
             session_start();
             $this->login = new Login($this->env);
             
@@ -25,12 +25,17 @@
                 'content' => $page->content,
                 'hide_metrics' => $this->env->ENV_VARS['metrics_hide_metrics'],
                 'logged_in' => $this->logged_in,
+                'content_image_position' => $this->_get_content_image_position($page->name)
             );
 
             if ($this->logged_in) $template_vars['username'] = $this->login->get_username();
             if (!$this->logged_in) $template_vars['failed_login'] = $this->failed_login;
-            
+
             return $template_vars;
+        }
+        
+        function _get_content_image_position($page_name) {
+            return ($page_name == 'cisteni_aut') ? 'right' : 'left';
         }
         
         function _get_page() {

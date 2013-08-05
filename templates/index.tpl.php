@@ -82,11 +82,9 @@
 
             <div class="document-content">
 
+
+                <img class="content-image<?php if ($content_image_position == 'right') echo " right"; ?>" src="img/<?php echo $page; ?>.png" />
                 <?php
-                    if (($page != 'cenik')&&($page != "cisteni-aut"))
-                        echo "<img class=\"content-image\" src=\"img/$page.png\" />";
-                    if ($page == 'cisteni-aut')
-                        echo "<img class=\"content-image right\" src=\"img/$page.png\" />";
                     echo "<h1>$title</h1>$content";
                 ?>
 
