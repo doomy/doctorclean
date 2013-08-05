@@ -19,6 +19,10 @@ class Login extends BasePackageWithDb {
         }
         else return false;
     }
+    
+    public function get_username() {
+        return $_SESSION['username'];
+    }
 
     private function _check_login($credentials) {
         return $this->dbh->run_db_call('Login', 'are_credentials_correct',  $credentials);
@@ -32,6 +36,7 @@ class Login extends BasePackageWithDb {
     private function _log_in($username) {
         $_SESSION['logged_in'] = true;
         $_SESSION['permissions'] = $this->dbh->run_db_call('Login', 'get_user_permissions', $username);
+        $_SESSION['username'] = $username;
     }
 }
 ?>
