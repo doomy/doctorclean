@@ -1,0 +1,1 @@
+Zde zaregistrujete nového uživatele.

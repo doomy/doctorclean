@@ -94,6 +94,10 @@ p {
     margin-right: 10px;
 }
 
+.header .login-area a {
+    color: white;
+}
+
 .header .menu-area {
     position: absolute;
     top: 200px;

@@ -82,10 +82,13 @@
 
             <div class="document-content">
 
-
-                <img class="content-image<?php if ($content_image_position == 'right') echo " right"; ?>" src="img/<?php echo $page; ?>.png" />
+                <?php if (isset($content_image_position)) { ?>
+                    <img class="content-image<?php if ($content_image_position == 'right') echo " right"; ?>" src="img/<?php echo $page; ?>.png" />
                 <?php
-                    echo "<h1>$title</h1>$content";
+                    }
+                    echo "<h1>$title</h1>";
+                    if (isset($content)) echo $content;
+                    if (isset($content_template)) include('templates/'.$content_template.'.tpl.php');
                 ?>
 
                 <div class="clear">

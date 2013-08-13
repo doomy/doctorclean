@@ -15,23 +15,35 @@
             $template = new Template($this->env, 'index.tpl.php');
             $template->show($this->_get_template_vars());
         }
-        
+
         function _get_template_vars() {
             $page = $this->_get_page();
+
             $template_vars = array(
                 'page' => $page->name,
                 'title' => $page->title,
                 'menu_items' => $this->dbh->run_db_call('DoctorClean', 'get_menu_items'),
-                'content' => $page->content,
                 'hide_metrics' => $this->env->ENV_VARS['metrics_hide_metrics'],
                 'logged_in' => $this->logged_in,
-                'content_image_position' => $this->_get_content_image_position($page->name)
+                'is_system_page' => $this->is_system_page
             );
+
+
+            if (!$this->is_system_page) {
+                $template_vars['content'] = $page->content;
+                $template_vars['content_image_position'] = $this->_get_content_image_position($page->name);
+            }
+            else $template_vars['content_template'] = $page->template;
 
             if ($this->logged_in) $template_vars['username'] = $this->login->get_username();
             if (!$this->logged_in) $template_vars['failed_login'] = $this->failed_login;
 
             return $template_vars;
+        }
+        
+        function _is_system_page($page_name) {
+            if ($page_name == 'registrace') return true;
+            return false;
         }
         
         function _get_content_image_position($page_name) {
@@ -41,6 +53,8 @@
         function _get_page() {
             $model = new DoctorCleanModel($this->env);
             $page_name = $this->_get_page_from_request();
+            $this->is_system_page = $this->_is_system_page($page_name);
+            if ($this->is_system_page) return($model->get_system_page_vars($page_name));
             return $model->get_page_vars($page_name);
         }
         
