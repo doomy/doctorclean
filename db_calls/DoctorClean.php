@@ -1,6 +1,6 @@
 <?php
 class DoctorClean_db_calls extends BasePackageWithDb {
-    public function get_page_content($page) {
+    public function get_page_vars($page) {
          $sql = "SELECT title, content FROM t_content_pages WHERE str_id = '$page';";
          return $this->dbh->fetch_one_from_sql($sql);
     }
