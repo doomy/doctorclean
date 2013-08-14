@@ -1,6 +1,6 @@
 <?php
 class dbHandler extends BasePackage {
-    # version 18
+    # version 19
 
     private $connection;
 
@@ -140,7 +140,7 @@ class dbHandler extends BasePackage {
 
     private function _get_last_processed_upgrade_id() {
         $assoc_array = @$this->query_get_assoc_onerow(
-            array('id'), 'upgrade_history', false, 'id', true
+            array('id'), 't_upgrade_history', false, 'id', true
         );
         return $assoc_array['id'];
     }
@@ -153,7 +153,7 @@ class dbHandler extends BasePackage {
     }
 
     private function _update_upgrade_version($upgrade_id) {
-        $sql = "INSERT INTO upgrade_history (id, message) VALUES('$upgrade_id', 'Upgrade no. $upgrade_id');";
+        $sql = "INSERT INTO t_upgrade_history (id, message) VALUES('$upgrade_id', 'Upgrade no. $upgrade_id');";
         $this->query($sql);
     }
 
