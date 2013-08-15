@@ -86,10 +86,10 @@ p {
     background-color: #faa;
 }
 
-.header .login-area .submit {
+.blue-submit {
     position: relative;
     top: 1px;
-    background-color: #338;
+    background-color: #023B76!important;
     color: white;
     margin-right: 10px;
 }

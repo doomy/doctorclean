@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Registrovat!" />
+                <input type="submit" class="blue-submit" value="Registrovat!" />
             </td>
         </tr>
     </table>

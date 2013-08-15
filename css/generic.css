@@ -16,3 +16,7 @@
 .styled-form tr td {
     text-align: center;
 }
+
+.styled-form input[type=submit] {
+    padding: 3px;
+}
