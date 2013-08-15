@@ -3,6 +3,8 @@
         public function run() {
             $this->include_packages(array("template", "model/DoctorCleanModel", "login", "model/login/credentials"));
 
+            $this->model = new DoctorCleanModel($this->env);
+
             session_start();
             $this->login = new Login($this->env);
             
@@ -51,11 +53,10 @@
         }
         
         function _get_page() {
-            $model = new DoctorCleanModel($this->env);
             $page_name = $this->_get_page_from_request();
             $this->is_system_page = $this->_is_system_page($page_name);
-            if ($this->is_system_page) return($model->get_system_page_vars($page_name));
-            return $model->get_page_vars($page_name);
+            if ($this->is_system_page) return($this->model->get_system_page_vars($page_name));
+            return $this->model->get_page_vars($page_name);
         }
         
         function _get_page_from_request() {
