@@ -1,0 +1,18 @@
+.styled-form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.styled-form tr {
+    height: 40px;
+}
+
+.styled-form tr th {
+    font-weight: bold;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.styled-form tr td {
+    text-align: center;
+}

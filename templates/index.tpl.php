@@ -10,6 +10,7 @@
         <meta name="keywords" content="doctor, clean, čištění, koberců, strojů, auta, mytí, dezinfekce" />
         <meta name="description" content=" DoctorClean patří mezi české profesionální úklidové firmy se sídlem v Praze." />
         <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/generic.css" type="text/css">
     </head>
     <body>
         <?php if (!$hide_metrics) { ?>
