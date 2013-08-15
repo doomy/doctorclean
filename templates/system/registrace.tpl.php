@@ -21,7 +21,7 @@
                 <label for="password_again">Heslo znovu</label>
             </th>
             <td>
-                <input type="password_again" name="password_again" />
+                <input type="password" name="password_again" />
             </td>
         </tr>
         <tr>
