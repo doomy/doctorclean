@@ -18,5 +18,12 @@ class DoctorClean_db_calls extends BasePackageWithDb {
         }
         return $menu_items;
     }
+    
+    public function is_system_page($str_id) {
+        $sql = "SELECT 1 FROM t_system_pages WHERE str_id = '$str_id'";
+        $result = mysql_query($sql);
+        if (mysql_fetch_row($result)) return true;
+        else return false;
+    }
 }
 ?>

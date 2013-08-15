@@ -44,8 +44,7 @@
         }
         
         function _is_system_page($page_name) {
-            if ($page_name == 'registrace') return true;
-            return false;
+            return $this->model->is_system_page($page_name);
         }
         
         function _get_content_image_position($page_name) {

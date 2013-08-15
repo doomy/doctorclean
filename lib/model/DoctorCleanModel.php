@@ -12,6 +12,10 @@ class DoctorCleanModel extends BasePackageWithDb {
         $page->name = $page_name;
         return $page;
     }
+    
+    public function is_system_page($page_name) {
+        return $this->dbh->run_db_call("DoctorClean", "is_system_page", $page_name);
+    }
 }
 
 ?>
