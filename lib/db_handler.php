@@ -1,6 +1,6 @@
 <?php
 class dbHandler extends BasePackage {
-    # version 19
+    # version 20
 
     private $connection;
 
@@ -135,7 +135,14 @@ class dbHandler extends BasePackage {
         $this->process_sql_file(
             $this->env->basedir . 'sql/upgrade/' . $upgrade_file
         );
-        $this->_update_upgrade_version($upgrade_id);
+        if (!($this->_get_db_error())) $this->_update_upgrade_version($upgrade_id);
+        else die($this->_get_db_error());
+    }
+    
+    private function _get_db_error() {
+        if (mysql_error() != "Query was empty")
+            return mysql_error();
+        return false;
     }
 
     private function _get_last_processed_upgrade_id() {
