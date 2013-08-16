@@ -1,0 +1,1 @@
+ALTER TABLE t_system_pages ADD module VARCHAR(255) DEFAULT NULL;

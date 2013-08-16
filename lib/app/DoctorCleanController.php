@@ -3,14 +3,18 @@
         public function run() {
             $this->include_packages(array("template", "model/DoctorCleanModel", "login", "model/login/credentials"));
 
+            $this->_init_attributes();
+
+            $this->_render_template();
+        }
+        
+        function _init_attributes() {
             $this->model = new DoctorCleanModel($this->env);
 
             session_start();
             $this->login = new Login($this->env);
-            
+
             $this->logged_in = $this->_handle_login();
-            
-            $this->_render_template();
         }
         
         function _render_template() {
