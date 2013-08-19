@@ -1,4 +1,4 @@
-<form class="styled-form">
+<form class="styled-form" action="?p=registrace" method="POST">
     Zde zaregistrujete nového uživatele.
     <table>
         <tr>
@@ -34,6 +34,7 @@
         </tr>
         <tr>
             <td colspan="2">
+                <input type="hidden" name="is_registering" value="1" />
                 <input type="submit" class="blue-submit" value="Registrovat!" />
             </td>
         </tr>

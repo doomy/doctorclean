@@ -6,7 +6,7 @@ class DoctorClean_db_calls extends BasePackageWithDb {
     }
     
     public function get_system_page_vars($str_id) {
-        $sql = "SELECT title, template FROM t_system_pages WHERE str_id = '$str_id';";
+        $sql = "SELECT title, template, module FROM t_system_pages WHERE str_id = '$str_id';";
         return $this->dbh->fetch_one_from_sql($sql);
     }
     
