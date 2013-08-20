@@ -42,6 +42,8 @@
 
             if ($this->logged_in) $template_vars['username'] = $this->login->get_username();
             if (!$this->logged_in) $template_vars['failed_login'] = $this->failed_login;
+            
+            if (@$this->module_template_vars) $template_vars = array_merge($template_vars, $this->module_template_vars);
 
             return $template_vars;
         }
@@ -62,7 +64,8 @@
                 $this->include_packages(array('modules/'.$page_vars->module));
                 $class_name = ucfirst($page_vars->module);
                 $module = new $class_name($this->env);
-                $module_template_vars = $module->run();
+                $this->module_template_vars = $module->run();
+
                 return $page_vars;
             }
             return $this->model->get_page_vars($page_name);

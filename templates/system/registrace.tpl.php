@@ -1,3 +1,4 @@
+<?php if (@$successful_registration) echo "Registrace byla úspěšná."; ?>
 <form class="styled-form" action="?p=registrace" method="POST">
     Zde zaregistrujete nového uživatele.
     <table>
