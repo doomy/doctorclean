@@ -15,16 +15,15 @@
             $this->login = new Login($this->env);
             $this->page = $this->_get_page();
             $this->logged_in = $this->_handle_login();
+            $this->template_vars = $this->_get_template_vars();
         }
 
         function _render_template() {
             $template = new Template($this->env, 'index.tpl.php');
-            $template->show($this->_get_template_vars());
+            $template->show($this->template_vars);
         }
 
         function _get_template_vars() {
-
-
             $template_vars = array(
                 'page' => $this->page->name,
                 'title' => $this->page->title,
