@@ -62,7 +62,7 @@
                 $this->include_packages(array('modules/'.$page_vars->module));
                 $class_name = ucfirst($page_vars->module);
                 $module = new $class_name($this->env);
-                $module->run();
+                $module_template_vars = $module->run();
                 return $page_vars;
             }
             return $this->model->get_page_vars($page_name);

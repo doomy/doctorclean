@@ -14,7 +14,9 @@ class Registration extends BasePackageWithDb {
     
         $new_user = new User($username, $password, $email);
         $user_registrator = new UserRegistrator($this->env);
-        $user_registrator->attempt_registration($new_user);
+        if ($user_registrator->attempt_registration($new_user)) {
+            return array('successful_registration' => 1);
+        };
     }
 }
 
