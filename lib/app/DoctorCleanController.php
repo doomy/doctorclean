@@ -30,7 +30,8 @@
                 'menu_items' => $this->dbh->run_db_call('DoctorClean', 'get_menu_items'),
                 'hide_metrics' => $this->env->ENV_VARS['metrics_hide_metrics'],
                 'logged_in' => $this->logged_in,
-                'is_system_page' => $this->is_system_page
+                'is_system_page' => $this->is_system_page,
+                'env' => $this->env
             );
 
 

@@ -1,0 +1,1 @@
+Registrace byla úspěšná.
