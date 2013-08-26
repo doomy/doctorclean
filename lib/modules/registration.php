@@ -3,8 +3,7 @@
 class Registration extends BasePackageWithDb {
 // version 2
 
-    public function run() {
-        if ((!isset($_POST["username"])) || (!isset($_POST['is_registering']))) return null;
+    public function run() {        if ((!isset($_POST["username"])) || (!isset($_POST['is_registering']))) return null;
 
         $this->include_packages(array('model/user', 'user_registrator'));
 
@@ -31,11 +30,10 @@ class Registration extends BasePackageWithDb {
             case $user_registrator->ERROR_EMAIL_NOT_VALID:
                 return array('registration_error' => 'Neplatná e-mailová adresa');
             break;
-
+            case $user_registrator->ERROR_PASSWORD_TOO_SHORT:
+                return array('registration_error' => 'Heslo musí být alespoň tři znaky nebo delší!');
+            break;
         }
-//         if ($registration_result == $user_registrator->ERROR_PASSWORDS_DO_NOT_MATCH) {
-//
-//         }
     }
 }
 
