@@ -1,5 +1,12 @@
 <form class="styled-form" action="?p=registrace" method="POST">
     Zde zaregistrujete nového uživatele.
+    
+    <?php
+        if (isset($registration_error))
+            echo "<div class='error'>$registration_error</div>";
+    
+    ?>
+    
     <table>
         <tr>
             <th>
