@@ -1,3 +1,4 @@
+
 <?php
 
 class Registration extends BasePackageWithDb {
@@ -32,6 +33,9 @@ class Registration extends BasePackageWithDb {
             break;
             case $user_registrator->ERROR_PASSWORD_TOO_SHORT:
                 return array('registration_error' => 'Heslo musí být alespoň tři znaky nebo delší!');
+            break;
+            case $user_registrator->ERROR_PASSWORD_CONTAINS_INVALID_CHARACTERS:
+                return array('registration_error' => 'Neplatný znak v heslu! Prosím používejte pouze alfanumerické znaky, "-" a "_".');
             break;
         }
     }

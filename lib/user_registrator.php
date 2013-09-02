@@ -4,11 +4,13 @@ class UserRegistrator extends BasePackageWithDb {
     public $ERROR_PASSWORDS_DO_NOT_MATCH = -1;
     public $ERROR_EMAIL_NOT_VALID = -2;
     public $ERROR_PASSWORD_TOO_SHORT = -3;
+    public $ERROR_PASSWORD_CONTAINS_INVALID_CHARACTERS = -4;
 
     public function attempt_registration($user) {
         if ($user->password != $user->password_again) return $this->ERROR_PASSWORDS_DO_NOT_MATCH;
         if(!$this->_is_valid_email($user->email)) return $this->ERROR_EMAIL_NOT_VALID;
         if(strlen($user->password) < 3) return $this->ERROR_PASSWORD_TOO_SHORT;
+        if(!$this->_contains_only_valid_characters($user->password)) return $this->ERROR_PASSWORD_CONTAINS_INVALID_CHARACTERS;
         if ($this->dbh->run_db_call('UserRegistrator', 'register_user', $user)) return 1;
     }
 
@@ -17,6 +19,10 @@ class UserRegistrator extends BasePackageWithDb {
             return true;
         }
         return false;
+    }
+    
+    private function _contains_only_valid_characters($value) {
+        return preg_match('/[a-zA-Z0-9\-\_]/', $value);
     }
 }
 
