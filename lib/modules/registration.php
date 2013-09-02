@@ -40,6 +40,9 @@ class Registration extends BasePackageWithDb {
             case $user_registrator->ERROR_PASSWORD_CONTAINS_INVALID_CHARACTERS:
                 return array('registration_error' => 'Neplatný znak v heslu! Prosím používejte pouze alfanumerické znaky, "-" a "_".');
             break;
+            case $user_registrator->ERROR_USERNAME_ALREADY_EXISTS:
+                return array('registration_error' => 'Toto uživatelské jméno už v naší databázi existuje, vyberte si, prosím, jiné.');
+            break;
         }
     }
 }

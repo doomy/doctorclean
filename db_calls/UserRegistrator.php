@@ -1,6 +1,6 @@
 <?php
 class UserRegistrator_db_calls extends BasePackageWithDb {
-// version 1
+// version 2
 
     public function register_user($user) {
         $encryption_key = $this->env->ENV_VARS['DB_ENCRYPTION_KEY'];
@@ -8,6 +8,12 @@ class UserRegistrator_db_calls extends BasePackageWithDb {
 
         return $this->dbh->query($sql);
     }
-
+    
+    public function username_is_unique($username) {
+        $sql = "SELECT 1 FROM t_users WHERE username = '$username';";
+        $result = mysql_query($sql);
+        if (mysql_fetch_row($result)) return false;
+        else return true;
+    }
 }
 ?>
