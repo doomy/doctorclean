@@ -1,5 +1,7 @@
 <form class="styled-form" action="?p=registrace" method="POST">
-    Zde zaregistrujete nového uživatele.
+    Zde zaregistrujete nového uživatele. Registrací získáte zasílání novinek a informací
+    o nabídkách DoctorClean přímo do Vaší e-mailové schránky. Zaregistrováním se
+    souhlasíte se zasíláním těchto e-mailů.
     
     <?php
         if (isset($registration_error))
