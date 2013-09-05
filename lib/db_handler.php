@@ -1,6 +1,6 @@
 <?php
 class dbHandler extends BasePackage {
-    # version 20
+    # version 21
 
     private $connection;
 
@@ -103,6 +103,7 @@ class dbHandler extends BasePackage {
     private function _manage_upgrades() {
         $last_processed_upgrade_id = $this->_get_last_processed_upgrade_id();
         $upgrade_files = $this->_get_upgrade_files();
+        if(!$upgrade_files) return;
         sort($upgrade_files, SORT_NUMERIC);
         $last_file = @end($upgrade_files);
         $newest_upgrade_id = $this->_get_upgrade_id_from_filename($last_file);
