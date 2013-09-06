@@ -84,7 +84,7 @@
             <div class="document-content">
 
                 <?php if (isset($content_image_position)) { ?>
-                    <img class="content-image<?php if ($content_image_position == 'right') echo " right"; ?>" src="img/<?php echo $page; ?>.png" />
+                    <img class="content-image<?php if ($content_image_position == 'right') echo " right"; ?>" src="img/<?php echo $content_image_file; ?>" />
                 <?php
                     }
                     echo "<h1>$title</h1>";
