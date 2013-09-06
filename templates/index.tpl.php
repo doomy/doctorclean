@@ -83,7 +83,7 @@
 
             <div class="document-content">
 
-                <?php if (isset($content_image_position)) { ?>
+                <?php if ((isset($content_image_position))&&$content_image_file) { ?>
                     <img class="content-image<?php if ($content_image_position == 'right') echo " right"; ?>" src="img/<?php echo $content_image_file; ?>" />
                 <?php
                     }
