@@ -14,7 +14,7 @@
     $title_column = new EditableColumn('title', 'text');
     
     $admin = new Admin($env);
-    $table_edit = new TableEdit($env, $admin, 't_content_pages', array($text_content_column, $menu_title_column, $title_column));
-    $admin->add_modules($table_edit);
+    $content_table_edit = new TableEdit($env, $admin, 't_content_pages', array($text_content_column, $menu_title_column, $title_column));
+    $admin->add_modules($content_table_edit);
     $admin->run();
 ?>
