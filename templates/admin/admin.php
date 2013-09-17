@@ -38,6 +38,14 @@
         <?php
             if (@$content_template)
                 include ($admin->env->basedir . 'templates/admin/' . $content_template);
+
+            if (isset($_GET['plugin_id'])) {
+                ?>
+                
+                <a class="medium button" href="<?php echo $this->env->basedir; ?>admin/">Zpět</a>
+                
+                <?php
+            }
         ?>
         <br />
     </body>
