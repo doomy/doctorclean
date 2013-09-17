@@ -30,7 +30,8 @@
         array(
             admin => $admin,
             table_name => 't_users',
-            title => 'Uživatelská data'
+            title => 'Uživatelská data',
+            disable_save => true
         )
     );
 

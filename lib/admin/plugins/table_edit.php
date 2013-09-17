@@ -12,6 +12,7 @@ class TableEdit extends BasePackageWithDb {
             $this->_perform_action($_POST['tableedit_action']);
         $this->template_vars = $this->_get_table_vars();
         $this->template_vars['title'] = $args['title'] ? $args['title'] : 'TableEdit';
+        $this->template_vars['disable_save'] = $args['disable_save'] ? $args['disable_save'] : false;
     }
     
     public function run() {}

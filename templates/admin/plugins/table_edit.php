@@ -69,12 +69,14 @@
                 return false;
             }
         ?>
-        
+
     </table>
     <input type='hidden' name='tableedit_action' value='update' />
     <?php if (!($prevent_newline)) { ?>
         <input type='button' id='add_new_button' value='Add a new row' />
     <?php } ?>
-    <input type='submit' class="small save button" value='Uložit' />
+    <?php if(!$disable_save) { ?>
+        <input type='submit' class="small save button" value='Uložit' />
+    <?php } ?>
 </form>
 
