@@ -31,8 +31,9 @@
     <body>
         <a class="small button" href='?action=logout' />Odhlásit</a>
         <div class="admin-head">
+            <strong>Administrace</strong>
             <h1><?php echo $title; ?></h1>
-            <h2>Administrace</h2>
+
         </div>
         <?php
             if (@$content_template)

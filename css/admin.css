@@ -7,9 +7,10 @@
     width: 100%;
 }
 
-h1 {
-    margin: 0 auto;
-    width: 300px;
+.admin-head h1, .admin-head strong {
+    display: block;
+    width: 100%;
+    text-align: center;
 }
 
 table {
