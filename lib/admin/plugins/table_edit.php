@@ -5,13 +5,13 @@ class TableEdit extends BasePackageWithDb {
     public function _init($args) {
         $this->admin = $args['admin'];
         $this->just_updated = false;
-        $this->title = $args['title'] ? $args['title'] : 'TableEdit';
         $this->content_template = 'table_edit.php';
         $this->table_name = $args['table_name'];
         $this->editable_columns = $args['editable_columns'];
         if (isset($_POST['tableedit_action']))
             $this->_perform_action($_POST['tableedit_action']);
         $this->template_vars = $this->_get_table_vars();
+        $this->template_vars['title'] = $args['title'] ? $args['title'] : 'TableEdit';
     }
     
     public function run() {}

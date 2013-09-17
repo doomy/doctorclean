@@ -19,7 +19,8 @@
         array(
             admin => $admin,
             table_name => 't_content_pages',
-            editable_columns => array($text_content_column, $menu_title_column, $title_column)
+            editable_columns => array($text_content_column, $menu_title_column, $title_column),
+            title => 'Editace obsahu'
         )
     );
     $admin->add_modules($content_table_edit);

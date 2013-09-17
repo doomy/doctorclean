@@ -3,7 +3,7 @@
 <html lang="cs">
     <head>
         <meta charset="utf-8">
-        <title>Administrace</title>
+        <title><?php echo $title; ?> - Administrace</title>
         <?php $admin = $this ?>
         
         <?php
@@ -31,7 +31,8 @@
     <body>
         <a class="small button" href='?action=logout' />Odhlásit</a>
         <div class="admin-head">
-            <h1>Administrace</h1>
+            <h1><?php echo $title; ?></h1>
+            <h2>Administrace</h2>
         </div>
         <?php
             if (@$content_template)
