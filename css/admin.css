@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.admin-head h1, .admin-head strong {
+.admin-head h1, .admin-head strong, .centered-content {
     display: block;
     width: 100%;
     text-align: center;

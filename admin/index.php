@@ -14,6 +14,7 @@
     $title_column = new EditableColumn('title', 'text');
     
     $admin = new Admin($env);
+
     $content_table_edit = new TableEdit(
         $env,
         array(
@@ -23,6 +24,17 @@
             title => 'Editace obsahu'
         )
     );
+    
+    $users_table_edit = new TableEdit(
+        $env,
+        array(
+            admin => $admin,
+            table_name => 't_users',
+            title => 'Uživatelská data'
+        )
+    );
+
     $admin->add_modules($content_table_edit);
+    $admin->add_modules($users_table_edit);
     $admin->run();
 ?>

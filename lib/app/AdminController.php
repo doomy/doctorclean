@@ -28,18 +28,24 @@ class Admin extends BasePackageWithDb {
     private function _show_login_form() {
         include($this->env->basedir.'templates/admin/login.php');
     }
-    
+
     private function _logged_in() {
         $template_vars = array();
 
         if (isset($this->modules)) {
-            if(count($this->modules) == 1) {
-                $module = $this->modules[0];
+            if((count($this->modules) == 1)||(isset($_GET['plugin_id']))) {
+                $index = isset($_GET['plugin_id']) ? $_GET['plugin_id'] : 0;
+                $module = $this->modules[$index];
                 $module->run();
                 $template_vars['content_template'] = $module->content_template;
                 $template_vars = array_merge(
                     $template_vars, $module->template_vars
                 );
+            }
+            else {
+                $template_vars['content_template'] = 'plugin_list.tpl.php';
+                $template_vars['title'] = 'Hlavní strana';
+                $template_vars['modules'] = $this->modules;
             }
         }
 

@@ -60,6 +60,7 @@
             echo "</tr>";
 
             function get_editable_type($editable_columns, $column) {
+                if(!$editable_columns) return false;
                 foreach ($editable_columns as $editable_column) {
                     if ($editable_column->name == $column) {
                         return $editable_column->type;
