@@ -1,6 +1,6 @@
 <?php
 class Admin extends BasePackageWithDb {
-    # version 14
+    # version 15
     
     function _init() {
         $this->include_packages(array('login', 'model/login/credentials'));
@@ -32,7 +32,8 @@ class Admin extends BasePackageWithDb {
     private function _logged_in() {
         $this->template_vars = array();
         if (isset($this->modules)) {
-            foreach($this->modules as $module) {
+            if(count($this->modules) == 1) {
+                $module = $this->modules[0];
                 $module->run();
                 $content_template = $module->content_template;
                 $this->template_vars = array_merge(
