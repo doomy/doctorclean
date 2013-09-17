@@ -1,9 +1,9 @@
 <?php
 class Admin extends BasePackageWithDb {
-    # version 16
+    # version 17
     
     function _init() {
-        $this->include_packages(array('login', 'model/login/credentials'));
+        $this->include_packages(array('login', 'model/login/credentials', 'template'));
         session_start();
     }
 
@@ -30,18 +30,21 @@ class Admin extends BasePackageWithDb {
     }
     
     private function _logged_in() {
-        $this->template_vars = array();
+        $template_vars = array();
+
         if (isset($this->modules)) {
             if(count($this->modules) == 1) {
                 $module = $this->modules[0];
                 $module->run();
-                $content_template = $module->content_template;
-                $this->template_vars = array_merge(
-                    $this->template_vars, $module->template_vars
+                $template_vars['content_template'] = $module->content_template;
+                $template_vars = array_merge(
+                    $template_vars, $module->template_vars
                 );
             }
         }
-        require($this->env->basedir .'templates/admin/admin.php');
+
+        $template = new Template($this->env, 'admin/admin.php');
+        $template->show($template_vars);
     }
     
     private function _attempt_login() {

@@ -1,5 +1,5 @@
 <?php // version 7 ?>
-<?php if($admin->template_vars['just_updated']) { ?>
+<?php if($just_updated) { ?>
     <div class="update-success-message">
         Úspěšně aktualizováno.
     </div>
@@ -8,7 +8,7 @@
     <table>
         <tr>
             <?php
-            foreach ($admin->template_vars['columns'] as $column) {
+            foreach ($columns as $column) {
                 echo "<th>$column</th>";
             }
             ?>
@@ -16,13 +16,13 @@
         <?php
             $store_columns = true;
 
-            foreach ($admin->template_vars['rows'] as $row) {
+            foreach ($rows as $row) {
                 echo "<tr>";
 
                     foreach ($row as $column => $record) {
                         if ($store_columns) $columns[] = $column;
                         if ($column == 'id') $id = $record;
-                        $editable_type = get_editable_type($admin->template_vars, $column);
+                        $editable_type = get_editable_type($editable_columns, $column);
                         if ($editable_type) {
                             if ($editable_type=='file') {
                                 echo "<td><input type='text' value='$record' name='column__{$column}__id__$id' class='fileinput' id='file-$column-$id' /></td>";
@@ -44,7 +44,7 @@
             $id++;
             echo "<tr class='hidden' id='newline'>";
             foreach ($columns as $column) {
-                $editable_type = get_editable_type($admin->template_vars, $column);
+                $editable_type = get_editable_type($editable_columns, $column);
                 if ($editable_type) {
                     if ($editable_type=='file') {
                         echo "<td><input type='text' value='' name='newcol__{$column}__id__$id' placeholder='select a file...' class='fileinput' id='file-$column-$id' /></td>";
@@ -58,9 +58,9 @@
                     echo "<td>$id</td>";
             }
             echo "</tr>";
-            
-            function get_editable_type($template_vars, $column) {
-                foreach ($template_vars['editable_columns'] as $editable_column) {
+
+            function get_editable_type($editable_columns, $column) {
+                foreach ($editable_columns as $editable_column) {
                     if ($editable_column->name == $column) {
                         return $editable_column->type;
                     }
@@ -71,7 +71,7 @@
         
     </table>
     <input type='hidden' name='tableedit_action' value='update' />
-    <?php if (!($admin->template_vars['prevent_newline'])) { ?>
+    <?php if (!($prevent_newline)) { ?>
         <input type='button' id='add_new_button' value='Add a new row' />
     <?php } ?>
     <input type='submit' class="small save button" value='Uložit' />
