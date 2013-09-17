@@ -36,7 +36,7 @@
         </div>
         <?php
             if (@$content_template)
-                include ($admin->env->basedir . 'templates/admin/plugins/' . $content_template);
+                include ($admin->env->basedir . 'templates/admin/' . $content_template);
         ?>
         <br />
     </body>

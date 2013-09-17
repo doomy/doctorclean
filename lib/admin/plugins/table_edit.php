@@ -1,11 +1,11 @@
 <?php
 class TableEdit extends BasePackageWithDb {
-# version 11
+# version 12
 
     public function _init($args) {
         $this->admin = $args['admin'];
         $this->just_updated = false;
-        $this->content_template = 'table_edit.php';
+        $this->content_template = 'plugins/table_edit.php';
         $this->table_name = $args['table_name'];
         $this->editable_columns = $args['editable_columns'];
         if (isset($_POST['tableedit_action']))
