@@ -24,18 +24,19 @@
                         if ($column == 'id') $id = $record;
                         $editable_type = get_editable_type($editable_columns, $column);
                         if ($editable_type) {
-                            if ($editable_type=='file') {
-                                echo "<td><input type='text' value='$record' name='column__{$column}__id__$id' class='fileinput' id='file-$column-$id' /></td>";
-                            }
-                            else if ($editable_type=='text_content') {
-                                echo "<td><input type='button' class='tiny button' VALUE='[ Upravit textový obsah ]' class='editable-content' onclick='window.open(\"{$admin->env->basedir}admin/editor/?id=$id\", \"window_name\", \"width=500,height=500\")' /></td>";
-                            }
-                            else if ($editable_type=="password") {
-                                echo "<td>***********</td>";
-                            }
-                            else
-                            {
-                                echo "<td><input type='$editable_type' name='column__{$column}__id__$id' value='$record' /></td>";
+                            switch ($editable_type) {
+                                case 'file':
+                                    echo "<td><input type='text' value='$record' name='column__{$column}__id__$id' class='fileinput' id='file-$column-$id' /></td>";
+                                break;
+                                case 'text_content':
+                                    echo "<td><input type='button' class='tiny button' VALUE='[ Upravit textový obsah ]' class='editable-content' onclick='window.open(\"{$admin->env->basedir}admin/editor/?id=$id\", \"window_name\", \"width=500,height=500\")' /></td>";
+                                break;
+                                case 'password':
+                                    echo "<td>***********</td>";
+                                break;
+                                default:
+                                    echo "<td><input type='$editable_type' name='column__{$column}__id__$id' value='$record' /></td>";
+                                break;
                             }
                         }
                         else
