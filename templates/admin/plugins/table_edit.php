@@ -14,16 +14,16 @@
             ?>
         </tr>
         <?php
-            $store_columns = true;
-
+            $columns = array_keys($rows[0]);
             foreach ($rows as $row) {
                 $id = $row['id'];
-                
+
                 echo "<tr>";
                     foreach ($row as $column => $record) { ?>
                         <td>
                             <?php
-                            if ($store_columns) $columns[] = $column;
+                            
+
 
                             $editable_type = get_editable_type($editable_columns, $column);
                             if ($editable_type) {
@@ -48,7 +48,6 @@
                         </td>
                         <?php
                     }
-                $store_columns = false;
                 echo "</tr>";
             }
             $id++;
