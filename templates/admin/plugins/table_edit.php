@@ -17,13 +17,14 @@
             $store_columns = true;
 
             foreach ($rows as $row) {
+                $id = $row['id'];
+                
                 echo "<tr>";
-
                     foreach ($row as $column => $record) { ?>
                         <td>
                             <?php
                             if ($store_columns) $columns[] = $column;
-                            if ($column == 'id') $id = $record;
+
                             $editable_type = get_editable_type($editable_columns, $column);
                             if ($editable_type) {
                                 switch ($editable_type) {
