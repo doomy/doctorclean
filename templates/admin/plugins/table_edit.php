@@ -19,35 +19,41 @@
             foreach ($rows as $row) {
                 echo "<tr>";
 
-                    foreach ($row as $column => $record) {
-                        if ($store_columns) $columns[] = $column;
-                        if ($column == 'id') $id = $record;
-                        $editable_type = get_editable_type($editable_columns, $column);
-                        if ($editable_type) {
-                            switch ($editable_type) {
-                                case 'file':
-                                    echo "<td><input type='text' value='$record' name='column__{$column}__id__$id' class='fileinput' id='file-$column-$id' /></td>";
-                                break;
-                                case 'text_content':
-                                    echo "<td><input type='button' class='tiny button' VALUE='[ Upravit textový obsah ]' class='editable-content' onclick='window.open(\"{$admin->env->basedir}admin/editor/?id=$id\", \"window_name\", \"width=500,height=500\")' /></td>";
-                                break;
-                                case 'password':
-                                    echo "<td>***********</td>";
-                                break;
-                                default:
-                                    echo "<td><input type='$editable_type' name='column__{$column}__id__$id' value='$record' /></td>";
-                                break;
+                    foreach ($row as $column => $record) { ?>
+                        <td>
+                            <?php
+                            if ($store_columns) $columns[] = $column;
+                            if ($column == 'id') $id = $record;
+                            $editable_type = get_editable_type($editable_columns, $column);
+                            if ($editable_type) {
+                                switch ($editable_type) {
+                                    case 'file':
+                                        echo "<input type='text' value='$record' name='column__{$column}__id__$id' class='fileinput' id='file-$column-$id' />";
+                                    break;
+                                    case 'text_content':
+                                        echo "<input type='button' class='tiny button' VALUE='[ Upravit textový obsah ]' class='editable-content' onclick='window.open(\"{$admin->env->basedir}admin/editor/?id=$id\", \"window_name\", \"width=500,height=500\")' />";
+                                    break;
+                                    case 'password':
+                                        echo "***********";
+                                    break;
+                                    default:
+                                        echo "<input type='$editable_type' name='column__{$column}__id__$id' value='$record' />";
+                                    break;
+                                }
                             }
-                        }
-                        else
-                            echo "<td>$record</td>";
+                            else
+                                echo "$record";
+                            ?>
+                        </td>
+                        <?php
                     }
                 $store_columns = false;
                 echo "</tr>";
             }
             $id++;
             echo "<tr class='hidden' id='newline'>";
-            foreach ($columns as $column) {
+            foreach ($columns as $column) { ?>
+                <td> <?
                 $editable_type = get_editable_type($editable_columns, $column);
                 if ($editable_type) {
                     if ($editable_type=='file') {
@@ -59,8 +65,10 @@
                     }
                 }
                 else
-                    echo "<td>$id</td>";
+                    echo $id;
+                echo "</td>";
             }
+
             echo "</tr>";
 
             function get_editable_type($editable_columns, $column) {
