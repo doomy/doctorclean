@@ -27,7 +27,7 @@
             $template_vars = array(
                 'page' => $this->page->name,
                 'title' => $this->page->title,
-                'content_image_file' => $this->page->content_image_file,
+                'content_image_file' => @$this->page->content_image_file,
                 'menu_items' => $this->dbh->run_db_call('DoctorClean', 'get_menu_items'),
                 'hide_metrics' => $this->env->ENV_VARS['metrics_hide_metrics'],
                 'logged_in' => $this->logged_in,
