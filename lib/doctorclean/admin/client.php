@@ -13,7 +13,6 @@ class Client extends BasePackageWithDb {
         $content_table_edit = new TableEdit(
             $this->env,
             array(
-                admin => $admin,
                 table_name => 't_content_pages',
                 editable_columns => $this->get_content_table_editable_columns(),
                 title => 'Editace obsahu'
@@ -23,7 +22,6 @@ class Client extends BasePackageWithDb {
         $users_table_edit = new TableEdit(
             $this->env,
             array(
-                admin => $admin,
                 table_name => 't_users',
                 title => 'Uživatelská data',
                 editable_columns => array(new EditableColumn('password', 'password')),
@@ -34,7 +32,6 @@ class Client extends BasePackageWithDb {
         $discounts_table_edit = new TableEdit(
             $this->env,
             array(
-                admin => $admin,
                 table_name => 't_discounts',
                 title => 'Slevy',
                 disable_save => true
