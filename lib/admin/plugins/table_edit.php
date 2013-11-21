@@ -1,6 +1,6 @@
 <?php
 class TableEdit extends BasePackageWithDb {
-# version 18
+# version 19
 
     public function _init($args) {
         $this->admin = $args['admin'];
@@ -27,7 +27,8 @@ class TableEdit extends BasePackageWithDb {
             'editable_columns' => $this->editable_columns,
             'disable_new_record' => $this->disable_new_record,
             'just_updated' => $this->just_updated,
-            'required_javascript_files' => array('modules/table_edit.js')
+            'required_javascript_files' => array('modules/table_edit.js'),
+            'table_name' =>  $this->table_name
         );
     }
     
@@ -40,6 +41,7 @@ class TableEdit extends BasePackageWithDb {
     }
     
     private function _update() {
+        if ($_POST['table_name'] != $this->table_name) return;
         if (count($_FILES) > 1) $this->_update_files();
         $this->_update_from_post();
         $this->just_updated = true;

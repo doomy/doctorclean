@@ -1,4 +1,4 @@
-<?php // version 8 ?>
+<?php // version 9 ?>
 <?php if($just_updated) { ?>
     <div class="update-success-message">
         Úspěšně aktualizováno.
@@ -82,11 +82,13 @@
         ?>
 
     </table>
-    <input type='hidden' name='tableedit_action' value='update' />
+
     <?php if (!($disable_new_record)) { ?>
         <input type='button' class="small center button" id='add_new_button' value='Přidat nový záznam' />
     <?php } ?>
     <?php if(!$disable_save) { ?>
+        <input type='hidden' name='tableedit_action' value='update' />
+        <input type='hidden' name='table_name' value='<?php echo $table_name; ?>'>
         <input type='submit' class="small center button" value='Uložit' />
     <?php } ?>
 </form>
