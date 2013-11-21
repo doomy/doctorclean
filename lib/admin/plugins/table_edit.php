@@ -1,6 +1,6 @@
 <?php
 class TableEdit extends BasePackageWithDb {
-# version 17
+# version 18
 
     public function _init($args) {
         $this->admin = $args['admin'];
@@ -98,7 +98,6 @@ class TableEdit extends BasePackageWithDb {
     }
     
     private function _get_insert_sql($to_insert) {
-        echo "aaa";
         $sql = "INSERT INTO $this->table_name (";
         $index = 0;
         foreach($to_insert as $column => $value) {
