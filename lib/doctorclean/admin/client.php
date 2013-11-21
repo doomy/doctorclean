@@ -25,6 +25,7 @@ class Client extends BasePackageWithDb {
                 table_name => 't_users',
                 title => 'Uživatelská data',
                 editable_columns => array(new EditableColumn('password', 'password')),
+                prevent_newline => true,
                 disable_save => true
             )
         );
