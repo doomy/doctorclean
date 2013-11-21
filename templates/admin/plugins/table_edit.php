@@ -85,7 +85,7 @@
     </table>
     <input type='hidden' name='tableedit_action' value='update' />
     <?php if (!($prevent_newline)) { ?>
-        <input type='button' class="small center button" id='add_new_button' value='Add a new row' />
+        <input type='button' class="small center button" id='add_new_button' value='Přidat nový záznam' />
     <?php } ?>
     <?php if(!$disable_save) { ?>
         <input type='submit' class="small center button" value='Uložit' />
