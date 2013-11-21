@@ -25,7 +25,7 @@
 
     <?php
         foreach($required_javascript_files as $required_javascript_file) {
-            echo "<script type='text/javascript' src='{$admin->env->basedir}js/$required_javascript_file'></script>";
+            echo "<script type='text/javascript' src='{$admin->env->basedir}js/admin/$required_javascript_file'></script>";
         }
     ?>
 
