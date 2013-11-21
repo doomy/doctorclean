@@ -10,30 +10,35 @@
     $env = new Env('../');
 
     $admin = new Admin($env);
-
-    $content_table_edit = new TableEdit(
-        $env,
-        array(
-            admin => $admin,
-            table_name => 't_content_pages',
-            editable_columns => get_content_table_editable_columns(),
-            title => 'Editace obsahu'
-        )
-    );
-    
-    $users_table_edit = new TableEdit(
-        $env,
-        array(
-            admin => $admin,
-            table_name => 't_users',
-                title => 'Uživatelská data',
-            editable_columns => array(new EditableColumn('password', 'password')),
-            disable_save => true
-        )
-    );
-
-    $admin->add_modules(array($content_table_edit, $users_table_edit));
+    $admin->add_modules(get_admin_modules($env));
     $admin->run();
+    
+    function get_admin_modules($env) {
+        $content_table_edit = new TableEdit(
+            $env,
+            array(
+                admin => $admin,
+                table_name => 't_content_pages',
+                editable_columns => get_content_table_editable_columns(),
+                title => 'Editace obsahu'
+            )
+        );
+
+        $users_table_edit = new TableEdit(
+            $env,
+            array(
+                admin => $admin,
+                table_name => 't_users',
+                    title => 'Uživatelská data',
+                editable_columns => array(new EditableColumn('password', 'password')),
+
+                disable_save => true
+            )
+        );
+        
+        return array($content_table_edit, $users_table_edit);
+
+    }
     
     function get_content_table_editable_columns() {
         return array(
