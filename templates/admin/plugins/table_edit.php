@@ -1,4 +1,4 @@
-<?php // version 7 ?>
+<?php // version 8 ?>
 <?php if($just_updated) { ?>
     <div class="update-success-message">
         Úspěšně aktualizováno.
@@ -84,7 +84,7 @@
 
     </table>
     <input type='hidden' name='tableedit_action' value='update' />
-    <?php if (!($prevent_newline)) { ?>
+    <?php if (!($disable_newline)) { ?>
         <input type='button' class="small center button" id='add_new_button' value='Přidat nový záznam' />
     <?php } ?>
     <?php if(!$disable_save) { ?>

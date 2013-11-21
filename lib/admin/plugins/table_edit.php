@@ -1,12 +1,12 @@
 <?php
 class TableEdit extends BasePackageWithDb {
-# version 14
+# version 15
 
     public function _init($args) {
         $this->admin = $args['admin'];
         $this->just_updated = false;
         $this->content_template = 'plugins/table_edit.php';
-        $this->prevent_newline = isset($args['prevent_newline']) ? $args['prevent_newline'] : false;
+        $this->disable_newline = isset($args['disable_newline']) ? $args['disable_newline'] : false;
         $this->table_name = $args['table_name'];
         $this->editable_columns = $args['editable_columns'];
         if (isset($_POST['tableedit_action']))
@@ -24,7 +24,7 @@ class TableEdit extends BasePackageWithDb {
         $table_vars['columns'] = array_keys($rows[0]);
         $table_vars['rows']    = $rows;
         $table_vars['editable_columns'] = $this->editable_columns;
-        $table_vars['prevent_newline'] = $this->prevent_newline;
+        $table_vars['disable_newline'] = $this->disable_newline;
         $table_vars['just_updated'] = $this->just_updated;
         return $table_vars;
     }
