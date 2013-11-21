@@ -21,15 +21,13 @@
         )
     );
     
-    $password_column = new EditableColumn('password', 'password');
-    
     $users_table_edit = new TableEdit(
         $env,
         array(
             admin => $admin,
             table_name => 't_users',
             title => 'Uživatelská data',
-            editable_columns => array($password_column),
+            editable_columns => array(new EditableColumn('password', 'password')),
             disable_save => true
         )
     );
