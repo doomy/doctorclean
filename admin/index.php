@@ -26,14 +26,13 @@
         array(
             admin => $admin,
             table_name => 't_users',
-            title => 'Uživatelská data',
+                title => 'Uživatelská data',
             editable_columns => array(new EditableColumn('password', 'password')),
             disable_save => true
         )
     );
 
-    $admin->add_modules($content_table_edit);
-    $admin->add_modules($users_table_edit);
+    $admin->add_modules(array($content_table_edit, $users_table_edit));
     $admin->run();
     
     function get_content_table_editable_columns() {
