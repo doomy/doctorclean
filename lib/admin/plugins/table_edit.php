@@ -6,7 +6,7 @@ class TableEdit extends BasePackageWithDb {
         $this->admin = $args['admin'];
         $this->just_updated = false;
         $this->content_template = 'plugins/table_edit.php';
-        $this->disable_newline = isset($args['disable_newline']) ? $args['disable_newline'] : false;
+        $this->disable_new_record = isset($args['disable_new_record']) ? $args['disable_new_record'] : false;
         $this->table_name = $args['table_name'];
         $this->editable_columns = $args['editable_columns'];
         if (isset($_POST['tableedit_action']))
@@ -25,7 +25,7 @@ class TableEdit extends BasePackageWithDb {
             'columns' => array_keys($rows[0]),
             'rows'    => $rows,
             'editable_columns' => $this->editable_columns,
-            'disable_newline' => $this->disable_newline,
+            'disable_new_record' => $this->disable_new_record,
             'just_updated' => $this->just_updated,
             'required_javascript_files' => array('modules/table_edit.js')
         );

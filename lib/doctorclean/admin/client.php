@@ -17,7 +17,7 @@ class Client extends BasePackageWithDb {
                 table_name => 't_content_pages',
                 editable_columns => $this->get_content_table_editable_columns(),
                 title => 'Editace obsahu',
-                disable_newline => true
+                disable_new_record => true
             )
         );
 
@@ -27,7 +27,7 @@ class Client extends BasePackageWithDb {
                 table_name => 't_users',
                 title => 'Uživatelská data',
                 editable_columns => array(new EditableColumn('password', 'password')),
-                disable_newline => true,
+                disable_new_record => true,
                 disable_save => true
             )
         );

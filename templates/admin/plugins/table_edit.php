@@ -53,7 +53,7 @@
             $id++;
             echo "<tr class='hidden' id='newline'>";
             foreach ($columns as $column) { ?>
-                <td> <?
+            <?
                 $editable_type = get_editable_type($editable_columns, $column);
                 if ($editable_type) {
                     if ($editable_type=='file') {
@@ -65,8 +65,7 @@
                     }
                 }
                 else
-                    echo $id;
-                echo "</td>";
+                    echo "<td>$id</td>";
             }
 
             echo "</tr>";
@@ -84,7 +83,7 @@
 
     </table>
     <input type='hidden' name='tableedit_action' value='update' />
-    <?php if (!($disable_newline)) { ?>
+    <?php if (!($disable_new_record)) { ?>
         <input type='button' class="small center button" id='add_new_button' value='Přidat nový záznam' />
     <?php } ?>
     <?php if(!$disable_save) { ?>
