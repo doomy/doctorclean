@@ -9,12 +9,11 @@
         }
         
         function _init_attributes() {
-            $this->model = new DoctorCleanModel($this->env);
-
             session_start();
             $this->login = new Login($this->env);
-            $this->page = $this->_get_page();
             $this->logged_in = $this->_handle_login();
+            $this->model = new DoctorCleanModel($this->env, $this->logged_in);
+            $this->page = $this->_get_page();
             $this->template_vars = $this->_get_template_vars();
         }
 
