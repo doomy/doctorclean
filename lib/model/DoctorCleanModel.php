@@ -4,10 +4,8 @@ class DoctorCleanModel extends BasePackageWithDb {
     public function get_page_vars($page_name) {
         $page = $this->dbh->run_db_call("DoctorClean", "get_page_vars", $page_name);
         $page->name = $page_name;
-        $discounts = $this->dbh->run_db_call("DoctorClean", "get_discounts");
-        foreach ($discounts as $discount) {
-            $page->content =  str_replace("*$discount->str_id*", $discount->price_before_login, $page->content );
-        }
+        $page->content = $this->apply_discounts($page->content);
+        
         return $page;
     }
     
@@ -19,6 +17,14 @@ class DoctorCleanModel extends BasePackageWithDb {
     
     public function is_system_page($page_name) {
         return $this->dbh->run_db_call("DoctorClean", "is_system_page", $page_name);
+    }
+    
+    function apply_discounts($content) {
+        $discounts = $this->dbh->run_db_call("DoctorClean", "get_discounts");
+        foreach ($discounts as $discount) {
+            $content =  str_replace("*$discount->str_id*", $discount->price_before_login, $content );
+        }
+        return $content;
     }
 }
 
