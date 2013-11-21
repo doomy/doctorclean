@@ -1,6 +1,6 @@
 <?php
 class TableEdit extends BasePackageWithDb {
-# version 15
+# version 16
 
     public function _init($args) {
         $this->admin = $args['admin'];
@@ -11,22 +11,23 @@ class TableEdit extends BasePackageWithDb {
         $this->editable_columns = $args['editable_columns'];
         if (isset($_POST['tableedit_action']))
             $this->_perform_action($_POST['tableedit_action']);
-        $this->template_vars = $this->_get_table_vars();
+        $this->template_vars = $this->_get_template_vars();
         $this->template_vars['title'] = $args['title'] ? $args['title'] : 'TableEdit';
         $this->template_vars['disable_save'] = $args['disable_save'] ? $args['disable_save'] : false;
     }
     
     public function run() {}
     
-    private function _get_table_vars() {
+    private function _get_template_vars() {
         $rows = $this->dbh->get_array_of_rows_from_table($this->table_name, null, null, 'assoc');
         if (count($rows) <= 0) return false;
-        $table_vars['columns'] = array_keys($rows[0]);
-        $table_vars['rows']    = $rows;
-        $table_vars['editable_columns'] = $this->editable_columns;
-        $table_vars['disable_newline'] = $this->disable_newline;
-        $table_vars['just_updated'] = $this->just_updated;
-        return $table_vars;
+        $template_vars['columns'] = array_keys($rows[0]);
+        $template_vars['rows']    = $rows;
+        $template_vars['editable_columns'] = $this->editable_columns;
+        $template_vars['disable_newline'] = $this->disable_newline;
+        $template_vars['just_updated'] = $this->just_updated;
+        $template_vars['required_javascript_files'] = array('modules/table_edit.js');
+        return $template_vars;
     }
     
     private function _perform_action($action) {

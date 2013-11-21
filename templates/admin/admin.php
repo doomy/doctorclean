@@ -16,16 +16,18 @@
                     'js/jquery.js',
                     $admin->env
                 ),
-                new IncludedFile($admin->env->basedir .
-                    'js/modules/table_edit.js',
-                    $admin->env
-                )
             );
 
             foreach ($files_to_be_included as $file_to_be_included) {
                 $file_to_be_included->include_file();
             }
         ?>
+
+    <?php
+        foreach($required_javascript_files as $required_javascript_file) {
+            echo "<script type='text/javascript' src='{$admin->env->basedir}js/$required_javascript_file'></script>";
+        }
+    ?>
 
     </head>
     <body>

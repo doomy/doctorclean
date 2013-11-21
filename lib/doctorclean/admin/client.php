@@ -7,6 +7,7 @@ class Client extends BasePackageWithDb {
                 "admin/plugins/table_edit/editable_column"
             )
         );
+        $this->required_javascript_files = array('table_edit.js');
     }
 
     public function get_admin_modules() {
