@@ -16,7 +16,8 @@ class Client extends BasePackageWithDb {
             array(
                 table_name => 't_content_pages',
                 editable_columns => $this->get_content_table_editable_columns(),
-                title => 'Editace obsahu'
+                title => 'Editace obsahu',
+                disable_newline => true
             )
         );
 
