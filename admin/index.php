@@ -9,9 +9,7 @@
 
     $env = new Env('../');
 
-    $admin = new Admin($env);
-    $client = new Client($env);
-    $admin->add_modules($client->get_admin_modules());
+    $admin = new Admin($env, new Client($env));
     $admin->run();
     
 

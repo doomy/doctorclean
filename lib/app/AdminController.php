@@ -1,10 +1,11 @@
 <?php
 class Admin extends BasePackageWithDb {
-    # version 18
+    # version 19
     
-    function _init() {
+    function _init($client) {
         $this->include_packages(array('login', 'model/login/credentials', 'template'));
         session_start();
+        $this->add_modules($client->get_admin_modules());
     }
 
     public function run() {
@@ -21,7 +22,7 @@ class Admin extends BasePackageWithDb {
         $this->_show_login_form();
     }
     
-    public function add_modules($modules) {
+    function add_modules($modules) {
         foreach ($modules as $module) {
             $this->modules[] = $module;
         }
