@@ -25,5 +25,14 @@ class DoctorClean_db_calls extends BasePackageWithDb {
         if (mysql_fetch_row($result)) return true;
         else return false;
     }
+    
+    public function get_discounts() {
+        $sql = "SELECT str_id, price_before_login, price_after_login FROM t_discounts";
+        $result = mysql_query($sql);
+        while($record = mysql_fetch_object($result)) {
+            $discounts[] = $record;
+        }
+        return $discounts;
+    }
 }
 ?>
