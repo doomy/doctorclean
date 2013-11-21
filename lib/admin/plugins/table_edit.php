@@ -1,6 +1,6 @@
 <?php
 class TableEdit extends BasePackageWithDb {
-# version 16
+# version 17
 
     public function _init($args) {
         $this->admin = $args['admin'];
@@ -21,13 +21,14 @@ class TableEdit extends BasePackageWithDb {
     private function _get_template_vars() {
         $rows = $this->dbh->get_array_of_rows_from_table($this->table_name, null, null, 'assoc');
         if (count($rows) <= 0) return false;
-        $template_vars['columns'] = array_keys($rows[0]);
-        $template_vars['rows']    = $rows;
-        $template_vars['editable_columns'] = $this->editable_columns;
-        $template_vars['disable_newline'] = $this->disable_newline;
-        $template_vars['just_updated'] = $this->just_updated;
-        $template_vars['required_javascript_files'] = array('modules/table_edit.js');
-        return $template_vars;
+        return array(
+            'columns' => array_keys($rows[0]),
+            'rows'    => $rows,
+            'editable_columns' => $this->editable_columns,
+            'disable_newline' => $this->disable_newline,
+            'just_updated' => $this->just_updated,
+            'required_javascript_files' => array('modules/table_edit.js')
+        );
     }
     
     private function _perform_action($action) {
