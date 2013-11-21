@@ -30,8 +30,18 @@ class Client extends BasePackageWithDb {
                 disable_save => true
             )
         );
+        
+        $discounts_table_edit = new TableEdit(
+            $this->env,
+            array(
+                admin => $admin,
+                table_name => 't_discounts',
+                title => 'Slevy',
+                disable_save => true
+            )
+        );
 
-        return array($content_table_edit, $users_table_edit);
+        return array($content_table_edit, $users_table_edit, $discounts_table_edit);
 
     }
 
