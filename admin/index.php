@@ -8,11 +8,7 @@
     include_once("../lib/admin/plugins/table_edit/editable_column.php");
 
     $env = new Env('../');
-    
-    $text_content_column = new EditableColumn('content', 'text_content');
-    $menu_title_column = new EditableColumn('menu_title', 'text');
-    $title_column = new EditableColumn('title', 'text');
-    
+
     $admin = new Admin($env);
 
     $content_table_edit = new TableEdit(
@@ -20,7 +16,7 @@
         array(
             admin => $admin,
             table_name => 't_content_pages',
-            editable_columns => array($text_content_column, $menu_title_column, $title_column),
+            editable_columns => get_content_table_editable_columns(),
             title => 'Editace obsahu'
         )
     );
@@ -41,4 +37,12 @@
     $admin->add_modules($content_table_edit);
     $admin->add_modules($users_table_edit);
     $admin->run();
+    
+    function get_content_table_editable_columns() {
+        return array(
+            new EditableColumn('content', 'text_content'),
+            new EditableColumn('menu_title', 'text'),
+            new EditableColumn('title', 'text')
+        );
+    }
 ?>
