@@ -34,7 +34,7 @@ class Client extends BasePackageWithDb {
             array(
                 table_name => 't_discounts',
                 title => 'Slevy',
-                disable_save => true
+                editable_columns => $this->get_discounts_table_editable_columns(),
             )
         );
 
@@ -47,6 +47,14 @@ class Client extends BasePackageWithDb {
             new EditableColumn('content', 'text_content'),
             new EditableColumn('menu_title', 'text'),
             new EditableColumn('title', 'text')
+        );
+    }
+    
+    function get_discounts_table_editable_columns() {
+        return array(
+            new EditableColumn('str_id', 'text'),
+            new EditableColumn('price_before_login', 'text'),
+            new EditableColumn('price_after_login', 'text')
         );
     }
 
