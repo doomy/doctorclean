@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule section-(.*) index.php?p=$1

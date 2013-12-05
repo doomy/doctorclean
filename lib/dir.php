@@ -7,6 +7,7 @@ class Dir {
     }
 
     public function get_files_from_dir_by_extension($dir, $extension) {
+
         if ($all_files = $this->_get_files_from_dir($dir)) {
             foreach ($all_files as $file) {
                 if ($this->_file_has_extension($file, $extension)) {
