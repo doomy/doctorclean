@@ -38,7 +38,7 @@
                                      echo "<li";
                                      if ($key == 0) echo " class='first'";
                                      if ($menu_item == end($menu_items)) echo " class='last'";
-                                     echo "><a href='?p=$menu_item->str_id'>$menu_item->menu_title</a></li>";
+                                     echo "><a href='section-$menu_item->str_id'>$menu_item->menu_title</a></li>";
                                  }
                              ?>
                             <li class="clear">
